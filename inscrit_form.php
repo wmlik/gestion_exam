@@ -124,7 +124,7 @@ $table_niveau = $con->query('SELECT * FROM niveau ');
                                 <?php } ?>
                                 <button <?php echo $e ?> type="submit" name="save_user_btn" class="btn btn-primary btn-user btn-block">Enregistrer</button>
                                 <hr>
-                        </div>
+                        
                         </form>
                         <div class="text-center">
                             <a class="small" href="index.php">Vous avez déjà un compte? Connexion!</a>

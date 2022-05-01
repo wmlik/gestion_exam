@@ -1,12 +1,17 @@
 <?php
 if ($_SESSION['auth'] == true) {
     $message = $_SESSION['message'];
-
+    $user_role = $_SESSION['auth_role'];
+    if ($user_role = 0) {
+        $location = "dashboardadmin.php";
+    } else {
+        $location = "dashboardetud.php";
+    }
 ?>
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo $location ?>">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
@@ -18,7 +23,7 @@ if ($_SESSION['auth'] == true) {
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="<?php echo $location ?>">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
         </li>

@@ -14,7 +14,7 @@ try {
 if (isset($_POST['login_btn'])) {
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
-    $verifloginquery = "SELECT * from compteuser WHERE login='$email' and password='$password' LIMIT 1";
+    $verifloginquery = "SELECT * from compteuser WHERE email='$email' and password='$password' LIMIT 1";
     $veriflogin_run = mysqli_query($con, $verifloginquery);
     if (mysqli_num_rows($veriflogin_run) > 0) {
         foreach ($veriflogin_run as $data) {
@@ -24,18 +24,18 @@ if (isset($_POST['login_btn'])) {
             $user_role = $data['role'];
         }
         $_SESSION['auth'] = true;
-        $_SESSION['auth_role'] = "$user_role"; // 1=admin; 0=user
+        $_SESSION['auth_role'] = "$user_role"; // 0=admin; 1=etudiant
         $_SESSION['auth_user'] = [
             'idUser' => $user_id,
             'user_login' => $user_login,
             'user_email' => $user_email,
         ];
-        if ($user_role == 0) // admin or etudiant
+        if ($user_role == "admin") // admin or etudiant
         {
             $_SESSION['message'] = "Bienvenu " . $user_login;
             header("Location: dashboardadmin.php");
             exit(0);
-        } elseif ($user_role == 1) {
+        } elseif ($user_role == "etudiant") {
             $_SESSION['message'] = "Bienvenu " . $user_login;
             header("Location: dashboardetud.php");
             exit(0);
