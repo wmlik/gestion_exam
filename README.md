@@ -1,5 +1,7 @@
 # gestion_exam : Gestion des comptes Etudiants 
 
+# PHP project
+
 L'utilisateur (étudiant) accède au système afin d’inscrire a une faculté, Le système affiche une formulaire pour remplir les information de l'étudiant 
 
 En appuyant sur le bouton d'enregistrement, ce formulaire envoyer et apparaît dans une autre interface afin que l'agent administratif vérifier et valider ce formulaire,
