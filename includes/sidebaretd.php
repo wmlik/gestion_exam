@@ -3,9 +3,11 @@
 if (isset($_SESSION['auth'])) {
     $message = $_SESSION['message'];
     $user_role = $_SESSION['auth_role'];
-    
-        $location = "dashboardadmin.php";
-    
+
+
+
+    $location = "dashboardetud.php";
+
 ?>
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -39,9 +41,9 @@ if (isset($_SESSION['auth'])) {
 
         <!-- Nav Item - Tables -->
         <li class="nav-item">
-            <a class="nav-link" href="list_tous_etud.php">
+            <a class="nav-link" href="list_exam_encour.php">
                 <i class="fas fa-fw fa-table"></i>
-                <span>liste des étudiants</span></a>
+                <span>liste des examen en cours</span></a>
         </li>
 
         <!-- Divider -->

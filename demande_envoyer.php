@@ -10,7 +10,7 @@ if ($_SESSION['ok'] == true) {
             <div class="card bg-success text-white shadow">
                 <div class="card-body">
                     <h2>
-                        demande envoyé avec succès, Vérifiez votre nom dans la barre de recherche de la page login
+                        demande envoyé avec succès, Vérifiez votre nom dans la liste des étudiants de la page login
                     </h2>
                 </div>
             </div>

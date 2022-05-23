@@ -3,6 +3,7 @@ include('includes/header.php');
 include('includes/dbconn.php');
 ?>
 
+
 <body class="bg-gradient-primary">
 
     <div class="container">
@@ -40,6 +41,9 @@ include('includes/dbconn.php');
 
                                     <div class="text-center">
                                         <a class="small" href="inscrit_form.php">Créer un compte</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="small" href="verif_nom.php">vérifie ton nom</a>
                                     </div>
                                 </div>
                             </div>

@@ -1,7 +1,7 @@
 <?php
 session_start();
-if(isset($_SESSION['message']))
-$message = $_SESSION['message'];
+if (isset($_SESSION['message']))
+    $message = $_SESSION['message'];
 else $message = "Gestion D'examen";
 ?>
 <!DOCTYPE html>
@@ -23,6 +23,8 @@ else $message = "Gestion D'examen";
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <!-- Custom styles for this page -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 
 </head>
