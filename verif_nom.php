@@ -7,7 +7,6 @@ $table_etud = $con->query("SELECT * FROM etudiant ");
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <meta charset="utf-8">
