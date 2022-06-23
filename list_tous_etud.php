@@ -1,5 +1,6 @@
 <?php
 session_start();
+include('includes/verif_login.php');
 if (isset($_SESSION['message']))
     $message = $_SESSION['message'];
 else $message = "Gestion D'examen";
@@ -146,7 +147,7 @@ $table_etud = $con->query("SELECT * FROM etudiant ");
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Droits d'auteur &copy; Site Web 2022</span>
                     </div>
                 </div>
             </footer>

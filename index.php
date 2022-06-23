@@ -1,18 +1,21 @@
 <?php
 include('includes/header.php');
 include('includes/dbconn.php');
+if (isset($_SESSION['auth'])) {
+    if ($_SESSION['auth_role'] == "etudiant") {
+        header("Location: dashboardetud.php");
+    }
+    if ($_SESSION['auth_role'] == "admin") {
+        header("Location: dashboardadmin.php");
+    }
+}
 ?>
 
-
 <body class="bg-gradient-primary">
-
     <div class="container">
-
         <!-- Outer Row -->
         <div class="row justify-content-center">
-
             <div class="col-xl-10 col-lg-12 col-md-9">
-
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
@@ -38,7 +41,6 @@ include('includes/dbconn.php');
                                         <button type="submit" name="login_btn" class="btn btn-primary btn-user btn-block">Se connecter</button>
                                     </form>
                                     <hr>
-
                                     <div class="text-center">
                                         <a class="small" href="inscrit_form.php">Créer un compte</a>
                                     </div>
@@ -50,20 +52,15 @@ include('includes/dbconn.php');
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
+    
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 </body>

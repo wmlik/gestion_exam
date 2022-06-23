@@ -22,6 +22,7 @@ if ($_SESSION['ok'] == true) {
                 <h3>Vous avez déjà un compte? Connexion!</h3>
             </a>
         </div>
+        
     </body>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>

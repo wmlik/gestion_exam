@@ -1,6 +1,6 @@
 <?php
-
 include('includes/header.php');
+include('includes/verif_login.php');
 include('includes/dbconn.php');
 $message = $_SESSION['message'];
 $table_etud_demand = $con->query("SELECT * FROM etudiant where statu = 'en cours de traitement'");
@@ -75,7 +75,7 @@ $coun = $count_rowse['countdemande'];
                                                 examen en cours</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $countxe; ?></div>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -91,7 +91,7 @@ $coun = $count_rowse['countdemande'];
                                                 Examen Achevée</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $countx; ?></div>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -108,7 +108,7 @@ $coun = $count_rowse['countdemande'];
                                                 nombre d'étudiants inscrits</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $coun; ?></div>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -273,13 +273,10 @@ $coun = $count_rowse['countdemande'];
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
-                    </div>
-                </div>
-            </footer>
+                    <?php    
+                        include('includes/footer.php');
+                    ?>
+                    
             <!-- End of Footer -->
 
         </div>

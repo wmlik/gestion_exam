@@ -1,16 +1,13 @@
 <?php
 session_start();
-if (isset($_SESSION['message']))
-    $message = $_SESSION['message'];
-else $message = "Gestion D'examen";
-
 include('includes/dbconn.php');
-$message = $_SESSION['message'];
+
 $table_etud = $con->query("SELECT * FROM etudiant ");
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="utf-8">
@@ -40,7 +37,7 @@ $table_etud = $con->query("SELECT * FROM etudiant ");
 
         <!-- Sidebar -->
         <?php
-        include('includes/sidebar.php');
+        // include('includes/sidebar.php');
         ?>
         <!-- End of Sidebar -->
 
@@ -61,25 +58,19 @@ $table_etud = $con->query("SELECT * FROM etudiant ");
                     </form>
 
                     <!-- Topbar Search -->
-                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
 
                     <!-- Topbar Navbar -->
                     <?php
-                    include('includes/top_bar_admin.php');
+                    // include('includes/top_bar_admin.php');
                     ?>
 
                 </nav>
                 <!-- End of Topbar -->
-
+                <div class="text-center">
+                    <a class="small" href="index.php">
+                        <h3>Vous avez un compte? Connexion!</h3>
+                    </a>
+                </div>
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- DataTales Example -->
@@ -94,18 +85,18 @@ $table_etud = $con->query("SELECT * FROM etudiant ");
                                         <tr>
                                             <th>Nom</th>
                                             <th>Prenom</th>
-                                            <th>CIN</th>
+                                            <th>Date de naissance</th>
                                             <th>Statut</th>
-                                            
+
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>Nom</th>
                                             <th>Prenom</th>
-                                            <th>CIN</th>
+                                            <th>Date de naissance</th>
                                             <th>Statut</th>
-                                            
+
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -118,7 +109,7 @@ $table_etud = $con->query("SELECT * FROM etudiant ");
                                                 <td><?php echo $donnees['prenomEtd']; ?></td>
                                                 <td><?php echo $donnees['dateNaissance']; ?></td>
                                                 <td><?php echo $donnees['statu']; ?></td>
-                                                
+
                                             </tr>
 
                                         <?php
@@ -140,7 +131,7 @@ $table_etud = $con->query("SELECT * FROM etudiant ");
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Droits d'auteur &copy; Site Web 2022</span>
                     </div>
                 </div>
             </footer>

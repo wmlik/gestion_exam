@@ -1,5 +1,6 @@
 <?php
 include('includes/header.php');
+include('includes/verif_login.php');
 include('includes/dbconn.php');
 $message = $_SESSION['message'];
 
@@ -7,9 +8,7 @@ $examen_acheve = $con->query("SELECT COUNT(numExamen) as countdemande FROM exame
 $count_row = $examen_acheve->fetch(PDO::FETCH_ASSOC);
 $countx = $count_row['countdemande'];
 
-$examen_encour = $con->query("SELECT COUNT(numExamen) as countdemande FROM examen where dateExamen > SYSDATE() ");
-$count_rows = $examen_encour->fetch(PDO::FETCH_ASSOC);
-$countxe = $count_rows['countdemande'];
+
 
 $nb_etd_insc = $con->query("SELECT COUNT(idEtd) as countdemande FROM etudiant where statu = 'accepter'");
 $count_rowse = $nb_etd_insc->fetch(PDO::FETCH_ASSOC);
@@ -116,13 +115,9 @@ $coun = $count_rowse['countdemande'];
 
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
-                    </div>
-                </div>
-            </footer>
+            <?php
+                include('includes/footer.php');
+            ?>
             <!-- End of Footer -->
 
         </div>

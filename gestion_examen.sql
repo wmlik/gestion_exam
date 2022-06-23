@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 02 mai 2022 à 00:34
+-- Généré le : mar. 21 juin 2022 à 00:05
 -- Version du serveur : 10.4.22-MariaDB
 -- Version de PHP : 8.1.2
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `gestion_examen`
 --
+CREATE DATABASE IF NOT EXISTS `gestion_examen` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `gestion_examen`;
 
 -- --------------------------------------------------------
 
@@ -27,6 +29,7 @@ SET time_zone = "+00:00";
 -- Structure de la table `compteuser`
 --
 
+DROP TABLE IF EXISTS `compteuser`;
 CREATE TABLE `compteuser` (
   `idUser` int(11) NOT NULL,
   `idEtd` int(20) DEFAULT NULL,
@@ -44,7 +47,7 @@ CREATE TABLE `compteuser` (
 
 INSERT INTO `compteuser` (`idUser`, `idEtd`, `login`, `email`, `password`, `role`, `status`, `dateCreation`) VALUES
 (1, 13, 'wajdi mlik', 'wmlik@live.fr', 'aa', 'etudiant', 1, '2022-04-23 12:10:12'),
-(3, NULL, 'khaled trabelsi', 'admin@admin.com', 'bb', 'admin', NULL, '2022-04-30 15:42:47'),
+(3, NULL, 'wajdi admin', 'admin@admin.com', 'bb', 'admin', NULL, '2022-04-30 15:42:47'),
 (10, 11, 'ghorbelmolka', 'molka@live.fr', 'aa', 'etudiant', NULL, '2022-05-01 18:24:14');
 
 -- --------------------------------------------------------
@@ -53,6 +56,7 @@ INSERT INTO `compteuser` (`idUser`, `idEtd`, `login`, `email`, `password`, `role
 -- Structure de la table `departement`
 --
 
+DROP TABLE IF EXISTS `departement`;
 CREATE TABLE `departement` (
   `idDep` int(11) NOT NULL,
   `idMat` int(11) DEFAULT NULL,
@@ -73,6 +77,7 @@ INSERT INTO `departement` (`idDep`, `idMat`, `nomDep`) VALUES
 -- Structure de la table `etudiant`
 --
 
+DROP TABLE IF EXISTS `etudiant`;
 CREATE TABLE `etudiant` (
   `idEtd` int(255) NOT NULL,
   `idDep` int(11) DEFAULT NULL,
@@ -94,13 +99,11 @@ CREATE TABLE `etudiant` (
 --
 
 INSERT INTO `etudiant` (`idEtd`, `idDep`, `idParcours`, `idNiveaux`, `nomEtd`, `prenomEtd`, `adresseMail`, `dateNaissance`, `tel`, `photoEtd`, `cin`, `statu`, `mdp`) VALUES
-(11, 1, 2, 1, 'ghorbel', 'molka', 'molka@live.fr', '2004-12-04', 1, 'image5.jpg', 1, 'accepter', 'aa'),
+(11, 1, 2, 1, 'ghorbel', 'molka', 'molka@live.fr', '2004-12-04', 1, 'image5.jpg', 123456, 'accepter', 'aa'),
 (13, 2, 2, 2, 'mlik', 'wajdi', 'wmlik@live.fr', '1990-08-16', 23787920, 'image1.jpg', 656564565, 'accepter', 'aa'),
 (14, 1, 3, 3, 'kamel', 'hamza', 'aa@d.d', '2004-12-30', 456456465, 'image1.jpg', 456456, 'en cours de traitement', 'rr'),
 (15, 1, 4, 4, 'achraf ', 'jmal', 'jmal@afn.com', '2004-12-08', 464, 'image2.jpg', 4564564, 'refuser', 'bb'),
-(16, 1, 3, 4, 'amira', 'karrey', 'aa@g.f', '2004-09-15', 4564456, 'image3.jpg', 2147483647, 'en cours de traitement', 'aa'),
-(17, 1, 3, 1, 'slim', 'benayhya', 'aa@d.d', '2002-11-30', 486464564, 'image4.jpg', 456456456, 'en cours de traitement', 'aa'),
-(18, 1, 4, 5, 'tasnim', 'fki', 'aa@d.d', '2001-02-28', 46486786, 'image5.jpg', 4567867, 'en cours de traitement', 'rr');
+(16, 1, 3, 4, 'amira', 'karrey', 'aa@g.f', '2004-09-15', 4564456, 'image3.jpg', 2147483647, 'en cours de traitement', 'aa');
 
 -- --------------------------------------------------------
 
@@ -108,6 +111,7 @@ INSERT INTO `etudiant` (`idEtd`, `idDep`, `idParcours`, `idNiveaux`, `nomEtd`, `
 -- Structure de la table `examen`
 --
 
+DROP TABLE IF EXISTS `examen`;
 CREATE TABLE `examen` (
   `idSession` int(11) NOT NULL,
   `numExamen` int(11) NOT NULL,
@@ -124,13 +128,13 @@ CREATE TABLE `examen` (
 --
 
 INSERT INTO `examen` (`idSession`, `numExamen`, `dateExamen`, `dateCreation`, `dateSaisieNote`, `dureeExamen`, `status`, `nomexam`) VALUES
-(1, 1, '2022-04-06 22:08:37', '2022-04-01 22:08:37', '2022-05-04 22:08:37', '2', NULL, 'algo'),
-(2, 2, '2022-05-12 22:16:42', '2022-04-01 22:16:42', '2022-05-19 22:16:42', '2', NULL, 'SGBD'),
-(3, 3, '2022-05-26 23:13:25', '2022-05-02 00:13:24', '2022-05-02 00:13:24', '2', NULL, 'Architecture logicielle\r\n'),
+(1, 1, '2022-04-15 22:08:37', '2022-04-01 22:08:37', '2022-05-04 22:08:37', '2', NULL, 'algo'),
+(2, 2, '2023-05-24 22:16:42', '2022-04-01 22:16:42', '2022-05-19 22:16:42', '2', NULL, 'SGBD'),
+(3, 3, '2023-05-09 23:13:25', '2022-05-02 00:13:24', '2022-05-02 00:13:24', '2', NULL, 'Architecture logicielle\r\n'),
 (4, 4, '2022-06-08 23:13:25', '2022-05-02 00:13:24', '2022-05-02 00:13:24', '3', NULL, 'Atelier Environnement \r\n'),
-(5, 5, '2022-06-15 23:14:52', '2022-05-02 00:14:44', '2022-05-02 00:14:44', '1', NULL, 'Atelier framework \r\n'),
+(5, 5, '2023-06-15 23:14:52', '2022-05-02 00:14:44', '2022-05-02 00:14:44', '1', NULL, 'Atelier framework \r\n'),
 (6, 6, '2022-06-14 23:14:52', '2022-05-02 00:14:44', '2022-05-02 00:14:44', '3', NULL, 'POO\r\n'),
-(7, 7, '2022-04-03 23:14:52', '2022-05-02 00:14:44', '2022-05-02 00:14:44', '1', NULL, '.net\r\n');
+(7, 7, '2022-04-13 23:14:52', '2022-05-02 00:14:44', '2022-05-02 00:14:44', '1', NULL, '.net\r\n');
 
 -- --------------------------------------------------------
 
@@ -138,6 +142,7 @@ INSERT INTO `examen` (`idSession`, `numExamen`, `dateExamen`, `dateCreation`, `d
 -- Structure de la table `exammatier`
 --
 
+DROP TABLE IF EXISTS `exammatier`;
 CREATE TABLE `exammatier` (
   `idSession` int(11) NOT NULL,
   `numExamen` int(11) NOT NULL,
@@ -150,6 +155,7 @@ CREATE TABLE `exammatier` (
 -- Structure de la table `groupeformation`
 --
 
+DROP TABLE IF EXISTS `groupeformation`;
 CREATE TABLE `groupeformation` (
   `idgroupe` int(11) NOT NULL,
   `nomgroupe` varchar(254) DEFAULT NULL,
@@ -164,6 +170,7 @@ CREATE TABLE `groupeformation` (
 -- Structure de la table `groupeformationmatiere`
 --
 
+DROP TABLE IF EXISTS `groupeformationmatiere`;
 CREATE TABLE `groupeformationmatiere` (
   `idgroupe` int(11) NOT NULL,
   `idMat` int(11) NOT NULL
@@ -175,6 +182,7 @@ CREATE TABLE `groupeformationmatiere` (
 -- Structure de la table `matiere`
 --
 
+DROP TABLE IF EXISTS `matiere`;
 CREATE TABLE `matiere` (
   `idMat` int(11) NOT NULL,
   `nomMat` varchar(254) DEFAULT NULL,
@@ -189,6 +197,7 @@ CREATE TABLE `matiere` (
 -- Structure de la table `niveau`
 --
 
+DROP TABLE IF EXISTS `niveau`;
 CREATE TABLE `niveau` (
   `idNiveaux` int(20) NOT NULL,
   `nomNiveaux` varchar(255) NOT NULL
@@ -211,6 +220,7 @@ INSERT INTO `niveau` (`idNiveaux`, `nomNiveaux`) VALUES
 -- Structure de la table `parcours`
 --
 
+DROP TABLE IF EXISTS `parcours`;
 CREATE TABLE `parcours` (
   `idParcours` int(11) NOT NULL,
   `idMat` int(11) DEFAULT NULL,
@@ -233,6 +243,7 @@ INSERT INTO `parcours` (`idParcours`, `idMat`, `nomParcours`) VALUES
 -- Structure de la table `passerexamen`
 --
 
+DROP TABLE IF EXISTS `passerexamen`;
 CREATE TABLE `passerexamen` (
   `idgroupe` int(11) NOT NULL,
   `idEtd` int(11) NOT NULL,
@@ -249,6 +260,7 @@ CREATE TABLE `passerexamen` (
 -- Structure de la table `question`
 --
 
+DROP TABLE IF EXISTS `question`;
 CREATE TABLE `question` (
   `idSession` int(11) NOT NULL,
   `numExamen` int(11) NOT NULL,
@@ -263,6 +275,7 @@ CREATE TABLE `question` (
 -- Structure de la table `reponsequestion`
 --
 
+DROP TABLE IF EXISTS `reponsequestion`;
 CREATE TABLE `reponsequestion` (
   `Que_idSession` int(11) NOT NULL,
   `Que_numExamen` int(11) NOT NULL,
@@ -282,6 +295,7 @@ CREATE TABLE `reponsequestion` (
 -- Structure de la table `sessionexamen`
 --
 
+DROP TABLE IF EXISTS `sessionexamen`;
 CREATE TABLE `sessionexamen` (
   `idSession` int(11) NOT NULL,
   `description` varchar(254) DEFAULT NULL,
@@ -354,6 +368,12 @@ ALTER TABLE `parcours`
   ADD PRIMARY KEY (`idParcours`);
 
 --
+-- Index pour la table `passerexamen`
+--
+ALTER TABLE `passerexamen`
+  ADD KEY `FK_passExam_exam` (`idSession`,`numExamen`);
+
+--
 -- Index pour la table `question`
 --
 ALTER TABLE `question`
@@ -381,7 +401,7 @@ ALTER TABLE `sessionexamen`
 -- AUTO_INCREMENT pour la table `compteuser`
 --
 ALTER TABLE `compteuser`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT pour la table `departement`
@@ -393,7 +413,7 @@ ALTER TABLE `departement`
 -- AUTO_INCREMENT pour la table `etudiant`
 --
 ALTER TABLE `etudiant`
-  MODIFY `idEtd` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `idEtd` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT pour la table `niveau`

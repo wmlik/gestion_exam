@@ -1,10 +1,11 @@
 <?php
 session_start();
+include('includes/verif_login.php');
+include('includes/dbconn.php');
 if (isset($_SESSION['message']))
     $message = $_SESSION['message'];
 else $message = "Gestion D'examen";
 
-include('includes/dbconn.php');
 $message = $_SESSION['message'];
 $table_exam = $con->query("SELECT * FROM examen where dateExamen > SYSDATE() ");
 
@@ -38,29 +39,23 @@ $table_exam = $con->query("SELECT * FROM examen where dateExamen > SYSDATE() ");
 
     <!-- Page Wrapper -->
     <div id="wrapper">
-
         <!-- Sidebar -->
         <?php
         include('includes/sidebaretd.php');
         ?>
         <!-- End of Sidebar -->
-
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-
             <!-- Main Content -->
             <div id="content">
-
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
                     <!-- Sidebar Toggle (Topbar) -->
                     <form class="form-inline">
                         <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                             <i class="fa fa-bars"></i>
                         </button>
                     </form>
-
                     <!-- Topbar Search -->
                     <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
@@ -72,15 +67,12 @@ $table_exam = $con->query("SELECT * FROM examen where dateExamen > SYSDATE() ");
                             </div>
                         </div>
                     </form>
-
                     <!-- Topbar Navbar -->
                     <?php
-                    include('includes/top_bar_admin.php');
+                    include('includes/top_bar_etd.php');
                     ?>
-
                 </nav>
                 <!-- End of Topbar -->
-
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- DataTales Example -->
@@ -105,7 +97,6 @@ $table_exam = $con->query("SELECT * FROM examen where dateExamen > SYSDATE() ");
                                             <th>date Examen</th>
                                             <th>duree Examen</th>
                                             <th>paser Examen</th>
-
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -115,11 +106,9 @@ $table_exam = $con->query("SELECT * FROM examen where dateExamen > SYSDATE() ");
                                             <tr>
                                                 <td><?php echo $donnees['nomexam']; ?></td>
                                                 <td><?php echo $donnees['dateExamen']; ?></td>
-                                                <td><?php echo $donnees['dureeExamen']; ?></td>
-
+                                                <td><?php echo $donnees['dureeExamen']; ?>H</td>
                                                 <td>
                                                     <form class="user" action="" method="POST">
-                                                        <!-- <input type="hidden" name="idEtd" value="<?php echo $donnees['idEtd']; ?>"> -->
                                                         <button type=" submit" name="verifier" class="btn btn-primary btn-sm">paser Examen</button>
                                                     </form>
                                                 </td>
@@ -143,7 +132,7 @@ $table_exam = $con->query("SELECT * FROM examen where dateExamen > SYSDATE() ");
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Droits d'auteur &copy; Site Web 2022</span>
                     </div>
                 </div>
             </footer>

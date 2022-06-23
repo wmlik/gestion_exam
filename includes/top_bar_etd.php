@@ -3,6 +3,11 @@ include('includes/dbconn.php');
 $nb_etud_demand = $con->query("SELECT COUNT(idEtd) as countdemande FROM  etudiant where statu = 'en cours de traitement'");
 $count_row = $nb_etud_demand->fetch(PDO::FETCH_ASSOC);
 $count = $count_row['countdemande'];
+
+$examen_encour = $con->query("SELECT COUNT(numExamen) as countdemande FROM examen where dateExamen > SYSDATE() ");
+$count_rows = $examen_encour->fetch(PDO::FETCH_ASSOC);
+$countxe = $count_rows['countdemande'];
+
 $message = $_SESSION['message'];
 ?>
 <ul class="navbar-nav ml-auto">

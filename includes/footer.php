@@ -1,10 +1,8 @@
-<?php
-include('Bootstrap_core_JavaScript.php');
-?>
+
 <footer class="sticky-footer bg-white">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2021</span>
+            <span>Droits d'auteur &copy; Site Web 2022</span>
         </div>
     </div>
 </footer>

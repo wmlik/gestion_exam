@@ -1,5 +1,6 @@
 <?php
 include('includes/header.php');
+include('includes/verif_login.php');
 include('includes/dbconn.php');
 if (isset($_POST['verifier'])) {
     $_SESSION['idEtd'] = $_POST['idEtd'];
@@ -203,7 +204,7 @@ $table_niveau = $con->query('SELECT * FROM niveau ');
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Droits d'auteur &copy; Site Web 2022</span>
                     </div>
                 </div>
             </footer>

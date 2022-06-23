@@ -17,6 +17,7 @@ include('includes/dbconn.php');
 $table_departement = $con->query('SELECT * FROM departement ');
 $table_dparcours = $con->query('SELECT * FROM parcours ');
 $table_niveau = $con->query('SELECT * FROM niveau ');
+
 ?>
 
 <body class="bg-gradient-primary">
@@ -28,6 +29,19 @@ $table_niveau = $con->query('SELECT * FROM niveau ');
                     <img src="img/insc.jpg" alt="" class="col-lg-5 d-none d-lg-block">
                     <div class="col-lg-7">
                         <div class="p-5">
+                            <?php
+                            if (isset($_SESSION['existLogin'])) {
+                                $existLogin = $_SESSION['existLogin'];
+                                session_destroy();
+                            ?>
+                                <div class="alert alert-dismissible alert-danger">
+                                    <strong>Oh claquement!</strong> Modifiez quelques éléments <strong><?php echo $existLogin; ?> </strong> et essayez de soumettre à nouveau.
+                                </div>
+                            <?php
+                            }
+                            ?>
+
+
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Nouveau Utilisateur</h1>
                             </div>
@@ -78,12 +92,12 @@ $table_niveau = $con->query('SELECT * FROM niveau ');
                                         <input type="date" name="date" min="1970-01-01" max="2004-12-31" class="form-control form-control-user" name="date" required>
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="number" name="tlf" required class="form-control form-control-user" placeholder="numéro de téléphone" name="tlf" required>
+                                        <input type="number" min="1" name="tlf" required class="form-control form-control-user" placeholder="numéro de téléphone" name="tlf" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="number" class="form-control form-control-user" placeholder="Num Cin" name="cin" required>
+                                        <input type="number" min="1" class="form-control form-control-user" placeholder="Num Cin" name="cin" required>
                                     </div>
                                     <select name="depar" id="" class="col-sm-6 " id="exampleFirstName" required>
                                         <option value="">sélectionner le departement</option>
@@ -124,16 +138,16 @@ $table_niveau = $con->query('SELECT * FROM niveau ');
                                 <?php } ?>
                                 <button <?php echo $e ?> type="submit" name="save_user_btn" class="btn btn-primary btn-user btn-block">Enregistrer</button>
                                 <hr>
-                        
-                        </form>
-                        <div class="text-center">
-                            <a class="small" href="index.php">Vous avez déjà un compte? Connexion!</a>
+
+                            </form>
+                            <div class="text-center">
+                                <a class="small" href="index.php">Vous avez déjà un compte? Connexion!</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 
     <script>

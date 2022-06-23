@@ -6,7 +6,6 @@ $password = "";
 $database = "gestion_examen";
 try {
     $con = mysqli_connect("$host", "$username", "$password", "$database");
-    
 } catch (Exception $e) {
     header("Location: ../errors/dberror.php");
     die('Erreur : ' . $e->getMessage());
