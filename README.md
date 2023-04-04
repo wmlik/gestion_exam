@@ -1,4 +1,4 @@
-# gestion_exam : Gestion des comptes Etudiants 
+# gestion d'inscription : Gestion des comptes Etudiants 
 
 # PHP project
 
